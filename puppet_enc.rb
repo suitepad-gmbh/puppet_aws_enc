@@ -23,7 +23,7 @@ result = ec2.describe_instances filters: [
 return if !result.reservations.any? || !result.reservations.first.instances.any?
 
 instance = result.reservations.first.instances.first
-class_tag = instance.tags.find { |tag| tag.key == 'Puppet Class' }
+class_tag = instance.tags.find { |tag| tag.key == 'Puppet Classes' }
 classes = class_tag.value.split(',')
 node_definition = { classes: classes }
 
